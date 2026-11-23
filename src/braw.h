@@ -78,8 +78,8 @@ class Braw
 		ARG argColorFormat = {'c',"color-format","Bit depth and order of color information to be output:"};
 		std::vector<std::string> argColorFormatOptions = {"rgba","bgra","16il","16pl","f32s","f32p","f32a"};
 		std::vector<std::string> argColorFormatDescriptions = {
-			"Unsigned 8bit interleaved RGBA (FFmpeg format: rgba)",
-			"Unsigned 8bit interleaved BGRA (FFmpeg format: bgra)",
+			"Unsigned 8bit interleaved RGBA (FFmpeg format: rgb0)",
+			"Unsigned 8bit interleaved BGRA (FFmpeg format: bgr0)",
 			"Unsigned 16bit interleaved RGB (FFmpeg format: rgb48le)", 
 			"Unsigned 16bit planar RGB      (FFmpeg format: gbrp16le)", // Use filter to realign colors -filter:v colorchannelmixer=0:1:0:0:0:0:1:0:1:0:0:0
 			"Floating point interleaved RGB", // All 32b floats cause FFmpeg errors
@@ -101,7 +101,7 @@ class Braw
 		bool clipInfo = false;
 		ARG argVerbose = {'v',"verbose", "Print more information to CERR while processing"};
 		bool verbose = false;
-		ARG argFFFormat = {'f',"ff-format","Print FFmpeg arguments for processing decoded video\n\r\tExample: '-f rawvideo -pixel_format rgba -s 3840x2160 -r 60 -i pipe:0`"};
+		ARG argFFFormat = {'f',"ff-format","Print FFmpeg arguments for processing decoded video\n\r\tExample: '-f rawvideo -pixel_format rgb0 -s 3840x2160 -r 60 -i pipe:0`"};
 		bool ffPrint = false;
 		
 		// File info
