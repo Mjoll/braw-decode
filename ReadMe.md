@@ -90,14 +90,14 @@ Usage: braw-decode sample.braw | ffmpeg -y $(braw-decode -f sample.braw) -c:v he
         Print more information to CERR while processing
  -f, --ff-format
         Print FFmpeg arguments for processing decoded video
-        Example: '-f rawvideo -pixel_format rgba -s 3840x2160 -r 60 -i pipe:0`
+        Example: '-f rawvideo -pixel_format rgb0 -s 3840x2160 -r 60 -i pipe:0`
  -h, --help
         Print help text
  -c, --color-format [VALUE]
         Bit depth and order of color information to be output:
         Options:
-                rgba - Unsigned 8bit interleaved RGBA (FFmpeg format: rgba)
-                bgra - Unsigned 8bit interleaved BGRA (FFmpeg format: bgra)
+                rgba - Unsigned 8bit interleaved RGBA (FFmpeg format: rgb0)
+                bgra - Unsigned 8bit interleaved BGRA (FFmpeg format: bgr0)
                 16il - Unsigned 16bit interleaved RGB (FFmpeg format: rgb48le)
                 16pl - Unsigned 16bit planar RGB      (FFmpeg format: gbrp16le)
                 f32s - Floating point interleaved RGB

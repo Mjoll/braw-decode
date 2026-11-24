@@ -276,8 +276,9 @@ void Braw::printInfo()
 void Braw::printFFFormat()
 {
 	std::string ffmpegInputFormat = "-f rawvideo -pixel_format ";
-	ffmpegInputFormat += info->resourceFormat == blackmagicRawResourceFormatRGBAU8 ? "rgba" : "";
-	ffmpegInputFormat += info->resourceFormat == blackmagicRawResourceFormatBGRAU8 ? "bgra" : "";
+	// BRAW has no alpha channel; the fourth byte of the SDK's 8-bit RGBA/BGRA buffers is padding.
+	ffmpegInputFormat += info->resourceFormat == blackmagicRawResourceFormatRGBAU8 ? "rgb0" : "";
+	ffmpegInputFormat += info->resourceFormat == blackmagicRawResourceFormatBGRAU8 ? "bgr0" : "";
 	ffmpegInputFormat += info->resourceFormat == blackmagicRawResourceFormatRGBU16 ? "rgb48le" : "";
 	ffmpegInputFormat += info->resourceFormat == blackmagicRawResourceFormatRGBU16Planar ? "gbrp16le" : "";
 	if (info->resourceFormat == blackmagicRawResourceFormatRGBF32 ||
